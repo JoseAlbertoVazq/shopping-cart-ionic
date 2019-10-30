@@ -1,4 +1,4 @@
-# SHOPPING CART FrontEnd
+# SHOPPING CART FRONTEND
 
 Shopping cart FrontEnd made in Ionic 4. You can watch the NodeJS + ExpressJS + Sequelize + MySQL backend in: https://github.com/JoseAlbertoVazq/shopping-cart-node
 
