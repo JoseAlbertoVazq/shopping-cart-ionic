@@ -1,0 +1,66 @@
+<ion-content fullscreen>
+
+  <div class="ion-text-end">
+    <ion-button (click)="close()" fill="clear" color="dark">
+      <ion-icon name="close" slot="start"></ion-icon>
+    </ion-button>
+  </div>
+
+  <div class="ion-padding">
+
+    <ion-list>
+      <ion-item *ngFor="let p of orderList.details" class="ion-text-wrap">
+        <ion-grid>
+          <ion-row class="ion-align-items-center">
+            <ion-col size="2" class="ion-align-self-center">
+              <ion-button color="medium" fill="clear" (click)="decreaseItem(p.id)">
+                <ion-icon name="remove-circle" slot="icon-only"></ion-icon>
+              </ion-button>
+            </ion-col>
+
+            <ion-col size="1" class="ion-align-self-center">
+              {{ p.quantity }}
+            </ion-col>
+
+            <ion-col size="2" class="ion-align-self-center">
+              <ion-button color="medium" fill="clear" (click)="increaseItem(p.id)">
+                <ion-icon name="add-circle" slot="icon-only"></ion-icon>
+              </ion-button>
+            </ion-col>
+
+            <ion-col size="2" offset="5">
+              <ion-button color="medium" fill="clear" (click)="removeItem(p.id)">
+                <ion-icon name="close-circle" slot="icon-only"></ion-icon>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="9">
+              <b>{{ p.name }}</b>
+            </ion-col>
+            <ion-col size="3" class="ion-text-end">
+              {{ p.quantity * p.price | currency:'EUR' }}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+      <ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="9">
+              Total:
+            </ion-col>
+            <ion-col size="3" class="ion-text-end">
+              {{ getTotal() | currency:'EUR' }}
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-list>
+
+    <ion-button expand="full" (click)="checkout()">
+      Checkout
+    </ion-button>
+  </div>
+
+</ion-content>
