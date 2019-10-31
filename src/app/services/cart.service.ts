@@ -63,6 +63,8 @@ export class CartService {
     } else {
       const newProduct: OrderInterface = new OrderInterface();
       newProduct.id = product.id;
+      newProduct.name = product.name;
+      newProduct.price = product.price;
       newProduct.quantity = 1;
       this.orderDto.details.push(newProduct);
       this.updateItemCount(+1);
